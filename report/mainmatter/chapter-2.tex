@@ -1,26 +1,17 @@
-\chapter{About the Template}
-%\label{chapter:title}
+\chapter{WP1: Sun-Earth and Sun-Mars Lagrange Points}
+\label{chapter:wp1}
 
-This template aims to simplify and improve the (Xe)LaTeX report/thesis template by Delft University of Technology with the following three main design principles:
+\section{Task 1.1a}
 
-\begin{itemize}
-  \item \textbf{Simplicity First:} A class file that has been reduced by nearly 70\% to simplify customization;
-  \item \textbf{Effortless:} A careful selection of common packages to get started immediately;
-  \item \textbf{Complete:} Ready-to-go when it comes to the document and file structure.
-\end{itemize}
-
-\noindent This template works with pdfLaTeX, XeLaTeX and LuaLaTeX. In order to adhere to the TU Delft house style, either XeLaTeX or LuaLaTeX is required, as it supports TrueType and OpenType fonts. BibLaTeX is used for the bibliography with as backend biber. Please visit \url{https://dzwaneveld.github.io/report/} for the full documentation.
-
-\section*{Documentation (Abridged)}
-
-As a report/thesis is generally a substantial document, the chapters and appendices have been separated into different files and folders for convenience. The folders are based on the three parts in the document: the frontmatter, mainmatter and appendix. All files are inserted in the main file, \texttt{report.tex}, using the \texttt{\textbackslash input\{filename\}} command. The document class, which can be found in \texttt{tudelft-report.cls}, is based on the book class. 
-
-The template will automatically generate a cover when the \texttt{\textbackslash makecover} command is used. The title, subtitle and author will also be present on the title page. To give greater flexibility over the title page, the layout is specified in \texttt{title-report.tex}. A title page for theses is also available: \texttt{title-thesis.tex}. Change the corresponding \texttt{\textbackslash input\{...\}} command in the main file to switch. 
-
-The bibliography has been set up in \texttt{report.tex} to allow for easy customization. It is included in the table of contents and renamed to 'References' using the \texttt{heading=bibintoc} and \texttt{title=References} options of the \texttt{\textbackslash printbibliography} command respectively. If you would like to use a different .bib file, change the command \texttt{\textbackslash addbibresource{report.bib}} accordingly.
-
-\emph{→ Visit \url{https://dzwaneveld.github.io/report/} for the full documentation.}
-
-\section*{License}
-
-This template by Daan Zwaneveld is licensed under CC BY-NC 4.0. To view a copy of this license, visit \url{https://creativecommons.org/licenses/by-nc/4.0/}. No attribution is required in PDF outputs created using this template.
+\begin{table}[H]
+  \centering
+  \caption{Dimensionless coordinates $(x_i, y_i, z_i)$ of the Sun-Earth and Sun-Mars colinear Lagrange points in their respective synodic reference frames.}
+  \begin{tabular}{|c|c|c|c|}
+  \hline
+  \textbf{Lagrange Point} & $x_i$ & $y_i$ & $z_i$ \\
+  \hline
+  Sun-Earth - L2 & 1.0100904358 & 0 & 0 \\
+  Sun-Mars  - L2 & 1.0047631067 & 0 & 0 \\
+  \hline
+\end{tabular}
+\end{table}
