@@ -47,9 +47,15 @@ For that reason, the mission is deemed feasible with current technology, at leas
   \end{tabular}
 \end{table}
 
-Apart from the components of the acceleration mentioned in \autoref{sec:1.2}, the \ac{srp} induced 
+Apart from the acceleration components in \ref{sec:1.2}, the \acs{srp} acceleration is included, yielding the following expression in the rotating frame:
+\begin{equation}
+  \mathbf{\ddot{r}} = -2 \mathbf{\omega} \times \mathbf{\dot{r}} - \nabla U + \mathbf{a}_{\text{s}} \xRightarrow{\text{equilibrium}} 0 = -\nabla U + \mathbf{a}_{\text{s}} \Rightarrow \mathbf{a}_{\text{s}} = \nabla U,
+\end{equation}
+where $\mathbf{a}_{\text{s}}$ is the \acs{srp} solar-sail acceleration, expressed as
+\begin{equation}
+  \mathbf{a}_{\text{s}} = \beta \frac{1 - \mu}{r^2} (\mathbf{\hat{r}_1} \cdot \mathbf{\hat{n}})^2 \mathbf{\hat{n}}.
+\end{equation}
+Equilibrium requires $\mathbf{a}_{\text{s}} \parallel \nabla U$, meaning $\mathbf{\hat{n}}$ must be parallel to $\nabla U$. 
+For an L2 shift towards the Sun, $\nabla U$ is parallel to the Sun-planet line, so the sail normal must satisfy $\mathbf{\hat{n}} \parallel x$, i.e.\ the sail is oriented perpendicular to that line.
 
-
-% Due to the potential being non-dependant on $y$, $\nabla U$ is collinear with the Sun-Earth line. 
-% Hence, the expression for calculating the solar sail orientation ($\mathbf{\hat{n}} = \frac{\nabla U}{|\nabla U|}$) trivially yields $\mathbf{\hat{n}} \parallel x$, as shown in \autoref{tab:sail_orientation}.
-% i think it is quite trivial but still need to add some more words
+(75 words)
