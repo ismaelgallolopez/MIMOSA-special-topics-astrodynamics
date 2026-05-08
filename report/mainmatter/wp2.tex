@@ -93,6 +93,9 @@ On a different level, since the normal vector is parallel to the gradient of the
 
 \section{Task 2.4}
 
+In \autoref{fig:wp2_sensitivity}, $\beta$ is plotted as a function of the artificial $L_2$ $x$-coordinate. 
+The Mars case exhibits a steeper slope and higher required $\beta$ values compared to the Earth system.
+
 % Source - https://tex.stackexchange.com/a/119985
 % Posted by latex user, modified by community. See post 'Timeline' for change history
 % Retrieved 2026-05-08, License - CC BY-SA 4.0
@@ -103,28 +106,39 @@ On a different level, since the normal vector is parallel to the gradient of the
         \centering
         \includegraphics[width=\textwidth]{../code/wps/figures/sensitivity_earth.pdf}
         \caption{Sun-Earth}
+        \label{fig:sensitivity_earth}
     \end{subfigure}%
     ~ 
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
         \includegraphics[width=\textwidth]{../code/wps/figures/sensitivity_mars.pdf}
         \caption{Sun-Mars}
+        \label{fig:sensitivity_mars}
     \end{subfigure}
     \caption{Solar-sail lightness number as a function of the coordinate of the artificial Lagrange points.}
+    \label{fig:wp2_sensitivity}
 \end{figure}
 
-\begin{figure}[H]
-    \centering
-    \begin{subfigure}[t]{0.5\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{../code/wps/figures/sensitivity_earth_comparison.pdf}
-        \caption{Sun-Earth}
-    \end{subfigure}%
-    ~ 
-    \begin{subfigure}[t]{0.5\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{../code/wps/figures/sensitivity_mars_comparison.pdf}
-        \caption{Sun-Mars}
-    \end{subfigure}
-    \caption{Caption place holder}
-\end{figure}
+Increasing the shift toward the Sun requires a higher $\beta$ for equilibrium. 
+As shown in \autoref{tab:acceleration_3decimal}, moving to the artificial $L_2$ causes the planet's gravitational term for Mars to double, whereas Earth’s changes less. 
+This is because Mars's L2 is closer to the planet, so the gravitational pull is more sensitive to position changes.
+This trend is further validated by the first-order analytical approximation derived in \autoref{sec:beta-analytical}.
+
+(97 words)
+
+\begin{table}[H]
+  \centering
+  \caption{Comparison of potential gradient derivative terms for classical and artificial $L_2$ points.}
+  \label{tab:acceleration_3decimal}
+  \begin{tabular}{@{} l l S[table-format=1.3] S[table-format=2.3] S[table-format=1.3] @{}}
+    \toprule
+    \textbf{Configuration} & \textbf{System} & {Sun Term} & {Planet Term} & {Centrifugal Term} \\
+    \midrule
+    \multirow{2}{*}{Classical $L_2$} & Sun-Earth & 1.941 & 5.940  & 1.000 \\
+                                     & Sun-Mars  & 1.972 & 5.972  & 1.000 \\
+    \midrule
+    \multirow{2}{*}{Artificial $L_2$} & Sun-Earth & 1.978 & 8.123  & 1.000 \\
+                                      & Sun-Mars  & 1.978 & 12.109 & 1.000 \\
+    \bottomrule
+  \end{tabular}
+\end{table}

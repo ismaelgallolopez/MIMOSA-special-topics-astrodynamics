@@ -1,7 +1,7 @@
 \chapter{Derivations for WP2}
 \label{chapter:derivations-wp2}
 
-\section{Analytical approximation of the solar-sail lightness number as a function of the shift in the Lagrange points.}
+\section{Analytical approximation of the solar-sail lightness number as a function of the shift in the Lagrange points.} \label{sec:beta-analytical}
 
 For an ideal solar sail oriented normal to the Sun-line, the required lightness number $\beta$ is defined by (\parencite{mcinnes1999book}):
 
@@ -39,10 +39,32 @@ $$ \frac{d^2U}{dx^2} = \frac{2(1-\mu)}{r_1^3} + \frac{2\mu}{r_2^3} + 1 $$
 
 Substituting the simplified $\frac{d^2U}{dx^2}$ into the linearized equilibrium condition, we obtain the final analytical approximation for $\beta$ as a function of the displacement $\delta$:
 
-$$ \boxed{ \beta(\delta) = \frac{\delta}{1-\mu} \left( \frac{2(1-\mu)}{r_1^3} + \frac{2\mu}{r_2^3} + 1 \right) } $$
+$$ \boxed{ \beta(\delta) = \frac{\delta}{1-\mu} \left( \frac{2(1-\mu)}{r_1^3} + \frac{2\mu}{r_2^3} + 1 \right) } $$.
+
+Note that $r_1=r_1(\delta)$ and $r_2=r_2(\delta)$, but for simplification in the calculations are kept as constant: $r_1=|x_{L2}+\mu|$ and $r_2=|x_{L2}-(1-\mu)|$. 
 
 This linear model establishes that the required sail lightness number is directly proportional to the magnitude of the shift from the classical equilibrium. The validity of this approximation is subject to two primary constraints:
 \begin{itemize}
     \item The displacement $\delta$ must be small relative to the characteristic length scale of the local potential gradient, typically $\delta \ll r_2 \approx (\mu/3)^{1/3}$.
     \item The sail acceleration vector must remain strictly collinear with the Sun-planet line to satisfy the one-dimensional assumption.
 \end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../code/wps/figures/sensitivity_earth_comparison.pdf}
+        \caption{Sun-Earth}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../code/wps/figures/sensitivity_mars_comparison.pdf}
+        \caption{Sun-Mars}
+    \end{subfigure}
+    \caption{Comparison of analytical and computed values of $\beta$, for distances between the classic L2 and the shift stated in the problem specification.}
+    \label{fig:wp2_sensitivity_comparison}
+\end{figure}
+
+As illustrated in \autoref{fig:wp2_sensitivity_comparison}, the analytical approximation demonstrates excellent agreement with the numerical results for small values of $\delta$. 
+However, as the displacement increases, a divergence between the curves becomes visible, particularly in the Sun-Mars system; this occurs as higher-order gravitational perturbations ($\mathcal{O}(\delta^2)$) begin to influence the potential gradient, eventually exceeding the limits of the linear model.
