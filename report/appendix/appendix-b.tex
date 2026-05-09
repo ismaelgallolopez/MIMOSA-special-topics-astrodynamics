@@ -1,0 +1,76 @@
+\chapter{Derivations for WP3}
+\label{chapter:derivations-wp3}
+
+\section{Stability analysis of the trivial CR3BP ($\mu = 0$)}
+\label{sec:trivial-cr3bp}
+
+To verify the implementation of the Jacobian matrix, the trivial case $\mu = 0$ is considered analytically. With $\mu = 0$, the effective potential reduces to (\parencite{wakker2015fundamentals}):
+
+$$
+U \xrightarrow{\;\mu \to 0\;} \frac{1}{2}(x^2 + y^2) + \frac{1}{r_1}, \qquad r_1 = \sqrt{x^2 + y^2}
+$$
+
+The first partial derivatives of $U$ are:
+
+$$
+\frac{\partial U}{\partial x} = x - \frac{x}{r_1^3}, \qquad \frac{\partial U}{\partial y} = y - \frac{y}{r_1^3}
+$$
+
+The gradient can be written as:
+
+$$
+\nabla U = \begin{bmatrix} x \\ y \end{bmatrix} \left( -1 + \frac{1}{r_1^3} \right)
+$$
+
+By definition, at the Lagrange points $\nabla U = \mathbf{0}$. For $[x,\,y]^{\top} \neq \mathbf{0}$ this requires $r_1 = 1$, so all three collinear Lagrange points collapse to $x = 1$.
+
+The second partial derivatives of $U$ are:
+
+$$
+U_{xx} = 1 - \frac{1}{r_1^3} + \frac{3x^2}{r_1^5}, \qquad U_{xy} = \frac{3xy}{r_1^5}, \qquad U_{yy} = 1 - \frac{1}{r_1^3} + \frac{3y^2}{r_1^5}
+$$
+
+Evaluating at $x = 1,\; y = 0$ (so $r_1 = 1$):
+
+$$
+U_{xx} = 1 - 1 + 3 = 3, \qquad U_{xy} = 0, \qquad U_{yy} = 1 - 1 + 0 = 0
+$$
+
+The linearised equations of motion around the libration point, with state vector $\boldsymbol{s} = [x',\, y',\, \dot{x}',\, \dot{y}']^{\top}$, take the form $\dot{\boldsymbol{s}} = \mathbf{A}\,\boldsymbol{s}$ (\parencite{wakker2015fundamentals}, Eq.~3.86):
+
+$$
+\mathbf{A} =
+\begin{bmatrix}
+    0      & 0      & 1  & 0 \\
+    0      & 0      & 0  & 1 \\
+    U_{xx} & U_{xy} & 0  & 2 \\
+    U_{xy} & U_{yy} & -2 & 0
+\end{bmatrix}
+=
+\begin{bmatrix}
+    0 & 0 &  1 & 0 \\
+    0 & 0 &  0 & 1 \\
+    3 & 0 &  0 & 2 \\
+    0 & 0 & -2 & 0
+\end{bmatrix}
+$$
+
+Substituting into the characteristic polynomial (\parencite{wakker2015fundamentals}, Eq.~3.90):
+
+$$
+\lambda^4 + \bigl(4 - U_{xx} - U_{yy}\bigr)\,\lambda^2 + U_{xx}\,U_{yy} - U_{xy}^2 = 0
+$$
+
+yields, with $U_{xx} = 3$, $U_{yy} = 0$, $U_{xy} = 0$:
+
+$$
+\lambda^4 + \lambda^2 = 0 \quad\Longrightarrow\quad \lambda^2\!\left(\lambda^2 + 1\right) = 0 
+$$
+
+The four eigenvalues are therefore:
+
+$$
+\lambda_{1,2} = \pm\,i, \qquad \lambda_{3,4} = 0
+$$
+
+All eigenvalues have non-positive real parts. The purely imaginary pair $\pm i$ corresponds to a neutrally stable oscillation at the non-dimensional frequency $\omega = 1$ (one orbital period), while the double zero eigenvalue reflects the degenerate centre structure of the trivial case. The libration point is therefore \emph{marginally stable} for $\mu = 0$, consistent with the analytical expectation that in the absence of a secondary body all perturbations reduce to circular orbital motion about the primary.
