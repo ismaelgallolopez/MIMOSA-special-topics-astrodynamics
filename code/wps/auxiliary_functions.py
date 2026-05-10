@@ -7,7 +7,7 @@ Hessians, Jacobian matrices, and solar sail calculations.
 import numpy as np
 
 
-def nablaU(mu, x, y=0, z=0):
+def nablaU(mu, x, y=0, z=0, beta=0):
     """
     Computes the gradient of the effective potential U at (x, y, z) for a given mu.
     Returns a tuple (dUdx, dUdy, dUdz).
@@ -18,6 +18,8 @@ def nablaU(mu, x, y=0, z=0):
         Mass ratio parameter (0 < mu < 1)
     x, y, z : float
         Position coordinates in the rotating frame
+    beta : float, optional
+        Solar sail lightness number (default is 0 for classical CR3BP)
         
     Returns
     -------
@@ -30,9 +32,9 @@ def nablaU(mu, x, y=0, z=0):
     if mu == 0:
         r2 = np.inf 
 
-    dUdx = -(1 - mu) * (x + mu) / r1**3 - mu * (x - (1 - mu)) / r2**3 + x
-    dUdy = -(1 - mu) * y / r1**3 - mu * y / r2**3 + y
-    dUdz = -(1 - mu) * z / r1**3 - mu * z / r2**3
+    dUdx = -(1 - mu) * (1 - beta) * (x + mu) / r1**3 - mu * (x - (1 - mu)) / r2**3 + x
+    dUdy = -(1 - mu) * (1 - beta) * y / r1**3 - mu * y / r2**3 + y
+    dUdz = -(1 - mu) * (1 - beta) * z / r1**3 - mu * z / r2**3
 
     return dUdx, dUdy, dUdz
 
@@ -53,11 +55,11 @@ def dUdx_colinear(x, mu):
     float or array
         dU/dx at (x, 0, 0)
     """
-    nablaU_x, _, _ = nablaU(mu, x, 0, 0)
+    nablaU_x, _, _ = nablaU(mu, x)
     return nablaU_x 
 
 
-def hessianU(mu, x, y=0):
+def hessianU(mu, x, y=0, beta=0):
     """
     Computes the second-order partial derivatives of the effective potential U at (x, y).
     Returns (Uxx, Uxy, Uyy).
@@ -68,6 +70,8 @@ def hessianU(mu, x, y=0):
         Mass ratio parameter
     x, y : float
         Position coordinates in the rotating frame
+    beta : float, optional
+        Solar sail lightness number (default is 0 for classical CR3BP)
         
     Returns
     -------
@@ -81,24 +85,24 @@ def hessianU(mu, x, y=0):
         r2 = np.inf
 
     Uxx = (1
-           - (1 - mu) / r1**3
+           - (1 - mu) * (1- beta) / r1**3
            - mu / r2**3
-           + 3 * (1 - mu) * (x + mu)**2 / r1**5
+           + 3 * (1 - mu) * (1- beta) * (x + mu)**2 / r1**5
            + 3 * mu * (x - (1 - mu))**2 / r2**5)
 
     Uyy = (1
-           - (1 - mu) / r1**3
+           - (1 - mu) * (1- beta) / r1**3
            - mu / r2**3
-           + 3 * (1 - mu) * y**2 / r1**5
+           + 3 * (1 - mu) * (1- beta) * y**2 / r1**5
            + 3 * mu * y**2 / r2**5)
 
-    Uxy = (3 * (1 - mu) * (x + mu) * y / r1**5
-           + 3 * mu * (x - (1 - mu)) * y / r2**5)
+    Uxy = (3 * (1 - mu) * (1- beta) * (x + mu) * y / r1**5
+           + 3 * mu * (1- beta) * (x - (1 - mu)) * y / r2**5)
 
     return Uxx, Uxy, Uyy
 
 
-def jacobian(mu, x, y=0):
+def jacobian(mu, x, y=0, beta=0):
     """
     Returns the 4x4 Jacobian matrix J of the linearised CR3BP equations of motion 
     evaluated at position (x, y).
@@ -109,47 +113,15 @@ def jacobian(mu, x, y=0):
         Mass ratio parameter
     x, y : float
         Position coordinates
+    beta : float, optional
+        Solar sail lightness number (default is 0 for classical CR3BP)
         
     Returns
     -------
     numpy.ndarray
         4x4 Jacobian matrix of the linearized equations of motion
     """
-    Uxx, Uxy, Uyy = hessianU(mu, x, y)
-
-    J = np.array([
-        [  0,     0,    1,  0],
-        [  0,     0,    0,  1],
-        [Uxx, Uxy,    0,  2],
-        [Uxy, Uyy,   -2,  0]
-    ])
-
-    return J
-
-
-def jacobian_sail(mu, beta, x, y=0):
-    """
-    Returns the 4x4 Jacobian matrix J of the linearised augmented CR3BP equations 
-    of motion (with solar sail) evaluated at position (x, y).
-    
-    Parameters
-    ----------
-    mu : float
-        Mass ratio parameter
-    beta : float
-        Solar sail lightness number
-    x, y : float
-        Position coordinates
-        
-    Returns
-    -------
-    numpy.ndarray
-        4x4 Jacobian matrix of the linearized augmented CR3BP equations
-    """
-    r1 = np.sqrt((x + mu)**2 + y**2)
-
-    Uxx, Uxy, Uyy = hessianU(mu, x, y)
-    Uxx += -2*beta*(1-mu) / r1**3
+    Uxx, Uxy, Uyy = hessianU(mu, x, y, beta)
 
     J = np.array([
         [  0,     0,    1,  0],
