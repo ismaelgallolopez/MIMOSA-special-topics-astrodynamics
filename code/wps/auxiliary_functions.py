@@ -120,8 +120,8 @@ def jacobian(mu, x, y=0):
     J = np.array([
         [  0,     0,    1,  0],
         [  0,     0,    0,  1],
-        [-Uxx, -Uxy,    0,  2],
-        [-Uxy, -Uyy,   -2,  0]
+        [Uxx, Uxy,    0,  2],
+        [Uxy, Uyy,   -2,  0]
     ])
 
     return J
@@ -154,8 +154,8 @@ def jacobian_sail(mu, beta, x, y=0):
     J = np.array([
         [  0,     0,    1,  0],
         [  0,     0,    0,  1],
-        [-Uxx, -Uxy,    0,  2],
-        [-Uxy, -Uyy,   -2,  0]
+        [Uxx, Uxy,    0,  2],
+        [Uxy, Uyy,   -2,  0]
     ])
 
     return J
