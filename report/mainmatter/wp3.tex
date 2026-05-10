@@ -5,26 +5,44 @@
 
 \begin{table}[H]
   \centering
-  \caption{Eigenvalues of the classical and artificial Lagrange points (increased precision).}
+  \caption{Eigenvalues of the classical and artificial Lagrange points.}
   \label{tab:eigenvalues}
   \begin{tabular}{@{} l c c c c @{}}
     \toprule
     \textbf{Lagrange point} & $\lambda_1$ & $\lambda_2$ & $\lambda_3$ & $\lambda_4$ \\
     \midrule
-    Sun-Earth Classical (Task 1.1a) & $3.47833i$ & $-3.47833i$ & $-1.46914$ & $1.46914$ \\
-    Sun-Earth Artificial (Task 2.1a) & $3.47536i$ & $-3.47536i$ & $-1.46877$ & $1.46877$ \\
-    Sun-Mars Classical (Task 1.1a) & $3.48682i$ & $-3.48682i$ & $-1.47855$ & $1.47855$ \\
-    Sun-Mars Artificial (Task 2.1a) & $3.48335i$ & $-3.48335i$ & $-1.47812$ & $1.47812$ \\
+    Sun-Earth Classical (Task 1.1a) & $2.4842808659$  & $-2.4842808659$ & $2.0569924077i$ & $-2.0569924077i$ \\
+    Sun-Earth Artificial (Task 2.1a) & $-2.8898208071$ & $2.8898208071$  & $2.3078105257i$ & $-2.3078105257i$ \\
+    Sun-Mars Classical (Task 1.1a)  & $2.4969462455$  & $-2.4969462455$ & $2.0646919780i$ & $-2.0646919780i$ \\
+    Sun-Mars Artificial (Task 2.1a)  & $3.5177948626$  & $-3.5177948626$ & $2.7097693068i$ & $-2.7097693068i$ \\
     \bottomrule
   \end{tabular}
 \end{table}
 
 \section{Task 3.1b}
 
-To assess the asymptotic stability of the Lagrange points, we analyze the real part of the eignevalues in \autoref{tab:eigenvalues}.
+To assess the asymptotic stability of the Lagrange points, we analyze the real part of the eignevalues in \autoref{tab:eigenvalues} \parencite[sec 8.3]{battin1987introduction}.
 An eigenvalue with positive real part indicates an unstable libration point \parencite{mcinnes1999artificial}. 
 Since $\lambda_4$ lays on the right complex plane, all of the points are unstable. 
 When accounting for the solar sail acceleration, the (un)stability behaviour does not change, and the effect on the eigenvalues is minimal. 
 This was a foreseeable result, since the demonstrations in the literature \parencite{simmons1985restricted, bombardelli2011stability, aliasi2011artificial} already stated that in the solar-sail augmented \ac{cr3bp} the L2 Lagrange point is always unstable. 
 
 (92 words)
+
+\section{Task 3.2}
+
+Verification for the eigenvalues is performed by several different techniques. 
+First, the classical \ac{cr3bp} problem is reduced to the trivial case of $\mu = 0$ (see \autoref{sec:trivial-cr3bp}), where the eigenvalues can be derived analytically and agree with the numerical implementation and \cite[Appendix I, table A]{szebehely1967theory}.
+Second, the eigenvalues at the equilibrium points for the same case can be found in \cite[Appendix I, table A]{szebehely1967theory}; the results are verified up to the 9th decimal places, leaving only some possible difference due to hypothetical rounding errors or the technique performed by the author, from which no details could be found
+\footnote{Note that the reference swaps the definition of L1 and L2 (see \cite[Fig 4.1]{szebehely1967theory}), so the L2 values presented in this report correspond to the book's L1, and vice versa.}.
+Furthermore, the characteristic polinomial presented in \cite[sec 3.1.2]{mcinnes2000strategies} is used to compute by hand the eigenvalues for the solar-sail augmented \ac{cr3bp}, and the results are in agreement with the ones obtained in this report.
+Lastly, to verify the eigenvalues for the solar-sail augmented \ac{cr3bp}, nonlinear \acs{eom} are integrated and compared to the linearized system used for computing the eigenvalues (\autoref{fig:eigenvalue_verification}), showing good agreement between them \parencite[see][section 6.3]{strogatz2024nonlinear}.
+
+Thus, the results are verified. 
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.65\textwidth]{../code/wps/figures/eigenvalue_verification.pdf}
+  \caption{Comparison between the displacement as a function of time for the nonlinear dynamical system of the augmented L2 point for the Earth-Sun system vs. the linearized approximation.}
+  \label{fig:eigenvalue_verification}  
+\end{figure}
