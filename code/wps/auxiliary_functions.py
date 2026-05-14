@@ -159,3 +159,10 @@ def beta_sail(x, y, MU):
     with np.errstate(divide='ignore', invalid='ignore'):
         b = -(r1_sq / (1 - MU)) * grad_mag / r1_dot_n
     return b
+
+def eom(t, state, mu, beta=0):
+    x, y, xdot, ydot = state
+    Ux, Uy, _ = nablaU(mu, x, y)       
+    r1 = np.sqrt((x + mu)**2 + y**2)
+    a_sail = beta * (1 - mu) / r1**2
+    return [xdot, ydot, 2*ydot + Ux + a_sail, -2*xdot + Uy]
