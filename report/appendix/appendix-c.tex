@@ -1,0 +1,55 @@
+\chapter{Derivations for WP4}
+\label{chapter:derivations-wp4}
+
+\section{Acceleration of the sail for the planar \ac{eom}} 
+\label{section:acceleration-sail-eom}
+
+From \cite[section 2.2.3]{mcinnes2000strategies}, the \ac{eom} in the solar-sail augmented \ac{cr3bp} are taken and adapted to our planar case. 
+
+From the most general case of the solar sail acceleration \parencite[eq. 2.53]{mcinnes2000strategies}:
+
+\begin{equation}
+    \mathbf{a_\text{sail}} = \beta \frac{1 - \mu}{r_1^2} \cos^2\!\alpha \; \mathbf{\hat{n}}
+\end{equation}
+
+The components of the acceleration are then given by \cite[eq. 2.58-2.60]{mcinnes2000strategies}:
+
+\begin{align}
+    a_x &= \beta \,\frac{1-\mu}{r_1^2} \cos^2\!\alpha \; n_x \\
+    a_y &= \beta \,\frac{1-\mu}{r_1^2} \cos^2\!\alpha \; n_y \\
+    a_z &= \beta \,\frac{1-\mu}{r_1^2} \cos^2\!\alpha \; n_z
+\end{align}
+
+And the components of the unit vector $\mathbf{\hat{n}}$ are given by \cite[eq. 2.54-2.56]{mcinnes2000strategies}:
+
+\begin{align}
+n_x &= \frac{\cos\alpha\,(x+\mu)}{|\vec{r}_1|} - \frac{\sin\alpha\cos\gamma\,(x+\mu)\,z}{|(\vec{r}_1\times\hat{z})\times\vec{r}_1|} + \frac{\sin\alpha\sin\gamma\, y}{|\vec{r}_1\times\hat{z}|} \\
+n_y &= \frac{\cos\alpha\, y}{|\vec{r}_1|} - \frac{\sin\alpha\cos\gamma\, y\,z}{|(\vec{r}_1\times\hat{z})\times\vec{r}_1|} - \frac{\sin\alpha\sin\gamma\,(x+\mu)}{|\vec{r}_1\times\hat{z}|} \\
+n_z &= \frac{\cos\alpha\, z}{|\vec{r}_1|} + \frac{\sin\alpha\cos\gamma\,(y^2+(x+\mu)^2)}{|(\vec{r}_1\times\hat{z})\times\vec{r}_1|},
+\end{align}
+
+where $\alpha$ and $\gamma$ are the cone and clock angles, respectively.
+
+Hence, the augmented \ac{eom} are:
+
+\begin{align}
+\ddot{x} - 2\dot{y} &= U_x + a_x \\
+\ddot{y} + 2\dot{x} &= U_y + a_y \\
+\ddot{z} &= U_z + a_z
+\end{align}
+
+In our case, we have a planar problem: $z=0$, and out of the assignment's requirements, it is chosen that $\delta = 90^{\circ}$
+
+\begin{align}
+n_x &= \frac{\cos\alpha\,(x+\mu) + \sin\delta\, y}{r_1} \\
+n_y &= \frac{\cos\alpha\, y - \sin\alpha\,(x+\mu)}{r_1} \\
+n_z &= 0
+\end{align}
+
+It can be shown that, for the trivial $\alpha = 0$ case considered before, the expressions in the equations avobe simplify to:
+
+\begin{align}
+a_x &= \beta \,\frac{(1-\mu) (x+\mu)}{r_1^2} \\
+a_y &= 0 \\
+a_z &= 0
+\end{align}
