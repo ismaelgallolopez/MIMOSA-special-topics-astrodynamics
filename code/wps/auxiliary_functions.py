@@ -160,15 +160,15 @@ def beta_sail(x, y, MU):
         b = -(r1_sq / (1 - MU)) * grad_mag / r1_dot_n
     return b
 
-def eom(t, state, mu, beta=0, alpha=0):
+def eom(t, state, mu, beta=0, alpha_radians=0):
     x, y, xdot, ydot = state
-    Ux, Uy, _ = nablaU(mu, x, y)       
+    Ux, Uy, _ = nablaU(mu, x, y)    
     r1 = np.sqrt((x + mu)**2 + y**2)
 
     # solar sail normal components
-    nx = ((x + mu) * np.cos(alpha) + y * np.sin(alpha)) / r1
-    ny = ((y * np.cos(alpha)) - (x + mu) * np.sin(alpha)) / r1
+    nx = ((x + mu) * np.cos(alpha_radians) + y * np.sin(alpha_radians)) / r1
+    ny = ((y * np.cos(alpha_radians)) - (x + mu) * np.sin(alpha_radians)) / r1
     # solar sail acceleration components
-    ax_sail = beta * (1 - mu) * np.cos(alpha)**2 / r1**2 * nx
-    ay_sail = beta * (1 - mu) * np.cos(alpha)**2 / r1**2 * ny
+    ax_sail = beta * (1 - mu) * np.cos(alpha_radians)**2 / r1**2 * nx
+    ay_sail = beta * (1 - mu) * np.cos(alpha_radians)**2 / r1**2 * ny
     return [xdot, ydot, 2*ydot + Ux + ax_sail, -2*xdot + Uy + ay_sail]
