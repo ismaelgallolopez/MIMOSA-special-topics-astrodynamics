@@ -118,7 +118,7 @@ The equations are given in \autoref{chapter:derivations-wp4} and yield the follo
   \label{tab:mission_dates}
   \begin{tabular}{@{} l c c @{}}
     \toprule
-    \textbf{Event} & \textbf{Date} & \textbf{Mission elapsed time [years]} \\
+    \textbf{Event} & \textbf{Date} & \textbf{Mission elapsed time [years]}\footnote{Mission time since launch until manifold injection is neglected.} \\
     \midrule
     Initial epoch date             & 2030-01-01 & -1.88 \\
     Optimal launch date            & 2031-11-19 & 0.0 \\
@@ -127,3 +127,21 @@ The equations are given in \autoref{chapter:derivations-wp4} and yield the follo
     \bottomrule
   \end{tabular}
 \end{table}
+
+\section{Task 4.6}
+
+This solar-sail transfer is best suited to cargo missions. 
+Its propellant-free cruise and reusability make it ideal for repeatedly delivering non-time-critical payloads \parencite{frisbee2002solar,rozhkov2023cyclic}. 
+The principal challenge is carrying sufficient chemical propellant for the insertion impulses across multiple cycles, or relying on in-space depots \parencite{smitherman2011space}, which introduce their own constraints.
+
+For scientific missions, an orbiter approach is the most natural fit, with few extra challenges \parencite[sec 6.4]{mcinnes1999book}, similar to already developed missions \parencite{lantoine2024trajectory}. 
+Sample return is more ambitious \parencite[sec 6.5]{mcinnes1999book}. 
+The required lander substantially increases spacecraft mass, degrading the sail's area-to-mass ratio and hence increasing the required area for equal mass.
+
+Crew transport is poorly suited given the multi-year transfer time and associated radiation exposure \parencite{frisbee2002solar, nasa2023ScienceMars}. 
+However, the architecture can pre-position supporting infrastructure and cargo ahead of a crewed mission. 
+The key challenge is the long and variable transfer duration, which complicates scheduling resource delivery against a fixed crew-arrival date, with independent launch windows.
+
+Across all three, cyclic cargo delivery is the best current application because it tolerates the slow transfer, unlike the others. The general solar-sail limitations (large deployable structures, attitude control) apply throughout.
+
+(176 words)
