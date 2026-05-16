@@ -144,7 +144,7 @@
 \else
     \fancyhf{}
     \fancyhead[R]{\titlestyle\thepage}
-    \fancyhead[L]{\titlestyle\nouppercase{\rightmark}}
+    \fancyhead[L]{\titlestyle\@title\ \textemdash\ \@subtitle}
 \fi
 
 \pagestyle{fancy} % Set the package defaults and the additional changes as the style
