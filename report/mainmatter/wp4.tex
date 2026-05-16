@@ -110,8 +110,6 @@ The equations are given in \autoref{chapter:derivations-wp4} and yield the follo
 
 \section{Task 4.4}
 
-From the results in \autoref{tab:solar_sail_transfer_details_pablo}
-
 \begin{table}[H]
   \centering
   \caption{Parameter set for fellow student Pablo García-Conde Ortiz.}
@@ -128,6 +126,20 @@ From the results in \autoref{tab:solar_sail_transfer_details_pablo}
       \bottomrule
   \end{tabular}
 \end{table}
+
+All three parameters relevant to \autoref{tab:solar_sail_transfer_details_pablo} differ from \autoref{tab:solar_sail_transfer_details}: Lagrange point, lightness number and parking-orbit radius.
+Hence, their effect can only be interpreted as a combined one. 
+
+Pablo's all-lower $\Delta V$'s reflect two independent effects: higher $\beta$ lets the manifolds bend further toward the target and his higher parking orbit has a lower circular velocity, reducing $\Delta V_M$ independently of the sail. 
+The Lagrange point change also alters the manifold geometry, so $\beta$ cannot be credited alone. 
+Cone angles are not comparable: the trajectory shape depends on the target point's nonlinear \ac{eom}, which cannot be analyzed analytically.
+His transfer time for the Earth-bounded trajectory is shorter, consistent with the higher $\beta$ \parencite{vergaaij2018timeoptimal}.
+However, the transfer time for the Mars-bounded trajectory is longer, which can be explained because the insertion occurs at the lowest-$\Delta V$ crossing within the 5-year-window. 
+Thus, the transfer time is not only a consequence of sail performance, but also on the individual crossings' insertion $\Delta V$.
+For the Earth-bound case, since only one crossing exists for most angles, the transfer happens at the only possible crossing. 
+Overall, the results are consistent with higher sail performance improving the transfer, but no dominant effect can be isolated from this comparison.
+
+(199 words)
 
 \begin{table}[H]
   \centering
@@ -159,7 +171,7 @@ From the results in \autoref{tab:solar_sail_transfer_details_pablo}
     \textbf{Event} & \textbf{Date} & \textbf{Mission elapsed time [years]}\footnote{Mission time since launch until manifold injection is neglected.} \\
     \midrule
     Initial epoch date             & 2030-01-01 & -1.88 \\
-    Optimal launch date            & 2031-11-19 & 0.0 \\
+    \textbf{Optimal launch date}            & \textbf{2031-11-19} & \textbf{0.0} \\
     Arrival date (L2)              & 2036-05-25 & 4.52 \\
     Arrival date (Parking orbit)   & 2038-02-26 & 6.27 \\
     \bottomrule
