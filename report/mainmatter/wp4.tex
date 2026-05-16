@@ -17,7 +17,9 @@
   \label{fig:wp4_manifolds_closeup}  
 \end{figure}
 
-\section{Task 4.2a}
+\section{Task 4.2}
+
+\subsection{Task 4.2a}
 
 From \autoref{fig:wp4_manifolds_system_wide}, manifolds of the Sun-Mars system do not intersect with Earth's orbit. 
 However, the invariant manifolds intersect with the parking orbit around Mars (see \autoref{fig:wp4_manifolds_closeup}).
@@ -25,7 +27,7 @@ For this reason, the only feasible transfer trajectory using the invariant manif
 
 (50 words)
 
-\section{Task 4.2b}
+\subsection{Task 4.2b}
 
 Since it is not specified in the problem statement, the insertion point of the transfer is selected to be the one that minimizes the $\Delta V$ required.
 
@@ -108,7 +110,43 @@ The equations are given in \autoref{chapter:derivations-wp4} and yield the follo
 
 \section{Task 4.4}
 
-\todo{Find someone to compare}
+From the results in \autoref{tab:solar_sail_transfer_details_pablo}
+
+\begin{table}[H]
+  \centering
+  \caption{Parameter set for fellow student Pablo García-Conde Ortiz.}
+  \label{tab:wp4_parameters_pablo}
+  \begin{tabular}{l l}
+      \toprule
+      \textbf{Parameter} & \textbf{Value} \\
+      \midrule
+      Sun/Earth Lagrange point            & L1 \\
+      Sun/Mars Lagrange point             & L1 \\
+      Shift in Lagrange points {[-]}      & 0.00200 \\
+      Radius Martian parking orbit {[km]} & 275{,}555 \\
+      Lightness number {[-]}              & 0.0400 \\
+      \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \caption{Details of the solar-sail Earth-Mars transfer from fellow student Pablo García-Conde Ortiz.}
+  \label{tab:solar_sail_transfer_details_pablo}
+  \begin{tabularx}{\textwidth}{@{} >{\centering\arraybackslash}p{1.8cm} >{\centering\arraybackslash}p{1.8cm} >{\centering\arraybackslash}p{1.8cm} >{\centering\arraybackslash}p{1.8cm} >{\centering\arraybackslash}p{1.8cm} >{\centering\arraybackslash}p{1.8cm} >{\centering\arraybackslash}p{1.8cm} @{}}
+    \toprule
+    \textbf{Leg 1 Optimal cone angle [deg]} & 
+    \textbf{Leg 2 Optimal cone angle [deg]} & 
+    \textbf{$\Delta V_E$ at Earth's orbit [m/s]} & 
+    \textbf{$\Delta V_M$ at Martian parking orbit [m/s]} & 
+    \textbf{$\Delta V_{TOT}$ [m/s]} & 
+    \textbf{Transfer time along Earth-bound trajectory [Earth years]} & 
+    \textbf{Transfer time along Mars-bound trajectory [Earth years]} \\
+    \midrule
+    60.0 & 70.0 & 473.83 & 85.11 & 558.94 & 3.72 & 2.68 \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
 
 \section{Task 4.5}
 
