@@ -14,7 +14,7 @@
     \textbf{Lagrange point} & $\lambda_1$ & $\lambda_2$ & $\lambda_3$ & $\lambda_4$ \\
     \midrule
     Sun-Earth Classical (Task 1.1a) & $2.4842808659$  & $-2.4842808659$ & $2.0569924077i$ & $-2.0569924077i$ \\
-    Sun-Earth Artificial (Task 2.1a) & $-2.8898208071$ & $2.8898208071$  & $2.3078105257i$ & $-2.3078105257i$ \\
+    Sun-Earth Artificial (Task 2.1a) & $2.8898208071$ & $-2.8898208071$  & $2.3078105257i$ & $-2.3078105257i$ \\
     Sun-Mars Classical (Task 1.1a)  & $2.4969462455$  & $-2.4969462455$ & $2.0646919780i$ & $-2.0646919780i$ \\
     Sun-Mars Artificial (Task 2.1a)  & $3.5177948626$  & $-3.5177948626$ & $2.7097693068i$ & $-2.7097693068i$ \\
     \bottomrule
@@ -39,7 +39,7 @@ Verification for the eigenvalues is performed by several different techniques.
   \footnote{Note that for the specific $\mu = 0 $ case, the comparison shall be performed against the book's L3.}.
   \item The eigenvalues at the equilibrium points for the same case can be found in \cite[Appendix I, table A]{szebehely1967theory}; the results agree 
   \footnote{Note that the reference swaps the definition of L1 and L2 (see \cite[Fig 4.1]{szebehely1967theory}), so the L2 values presented in this report correspond to the book's L1, and vice versa. 
-  Also, the results agree up to the 9th decimal place, leaving only some possible difference due to hypothetical rounding errors or the technique performed by the author, from which no details could be found}.
+  Also, the results agree up to the 9th decimal place, leaving only some possible difference due to hypothetical rounding errors or the technique performed by the author, from which no details could be found.}.
   \item The characteristic polinomial \parencite[sec 3.1.2]{mcinnes2000strategies} is used to compute the eigenvalues for the augmented \ac{cr3bp}, and the results also agree.
   \item For the augmented \ac{cr3bp}, nonlinear \acs{eom} (\cite{mcinnes2000strategies}) are integrated and compared to the linearized system used for computing the eigenvalues (\autoref{fig:eigenvalue_verification}), showing good agreement \parencite[see][section 6.3]{strogatz2024nonlinear}.
 \end{enumerate}
