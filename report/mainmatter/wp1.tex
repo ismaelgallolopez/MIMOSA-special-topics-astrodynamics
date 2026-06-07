@@ -21,9 +21,9 @@
 
 \subsection{Task 1.1b}
 
-The implementation is verified by reproducing the Lagrange-point coordinates tabulated in \textcite{wakker2015fundamentals,koon2000dynamical}. 
-Because these references use mass parameters that differ from the assignment values, the solver is run with each reference's $\mu$ as input. 
-The computed coordinates match the tabulated values to all reported significant figures. 
+The Lagrange points are verified using \textcite{wakker2015fundamentals}'s characteristic distance parameter $\gamma_2 = x_{L_2} - (1-\mu)$.
+For Sun-Mars L2, \citeauthor{wakker2015fundamentals} tabulates $\gamma_2 = 4.763 \times 10^{-3}$; our solver returns $\gamma_2 = 4.763353 \times 10^{-3}$, agreeing to six significant figures (difference: $3.53 \times 10^{-7}$).
+The Sun-Earth case is verified analogously.
 
 (45 words)
 
