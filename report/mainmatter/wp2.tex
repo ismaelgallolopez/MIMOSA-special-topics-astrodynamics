@@ -48,18 +48,18 @@ The required $0.01163$ thus sits well within the design envelope of ground-teste
   \end{tabular}
 \end{table}
 
-Apart from the acceleration components in \ref{sec:1.2}, the \acs{srp} acceleration is included, yielding the following expression in the rotating frame:
+With the sail, the rotating-frame equation reads
 \begin{equation}
-  \mathbf{\ddot{r}} = -2 \mathbf{\omega} \times \mathbf{\dot{r}} - \nabla U + \mathbf{a}_{\text{s}} \xRightarrow{\text{equilibrium}} 0 = -\nabla U + \mathbf{a}_{\text{s}} \Rightarrow \mathbf{a}_{\text{s}} = \nabla U,
+  \mathbf{\ddot{r}} = -2\boldsymbol{\omega}\times\mathbf{\dot{r}} - \nabla U + \mathbf{a}_{\text{s}}, \qquad
+  \mathbf{a}_{\text{s}} = \beta\,\frac{1-\mu}{r^2}(\mathbf{\hat{r}}_1\cdot\mathbf{\hat{n}})^2\,\mathbf{\hat{n}},
 \end{equation}
-where $\mathbf{a}_{\text{s}}$ is the \acs{srp} solar-sail acceleration, expressed as
-\begin{equation}
-  \mathbf{a}_{\text{s}} = \beta \frac{1 - \mu}{r^2} (\mathbf{\hat{r}_1} \cdot \mathbf{\hat{n}})^2 \mathbf{\hat{n}}.
-\end{equation}
-Equilibrium requires $\mathbf{a}_{\text{s}} \parallel \nabla U$, meaning $\mathbf{\hat{n}}$ must be parallel to $\nabla U$. 
-For an L2 shift towards the Sun, $\nabla U$ is parallel to the Sun-planet line, so the sail normal must satisfy $\mathbf{\hat{n}} \parallel x$, i.e.\ the sail is oriented perpendicular to that line.
+where $\mathbf{a}_{\text{s}}$ is the \acs{srp} acceleration.
+At equilibrium ($\mathbf{\ddot{r}}=\mathbf{\dot{r}}=0$) this gives $\mathbf{a}_{\text{s}}=\nabla U$, so $\mathbf{\hat{n}}\parallel\nabla U$.
+Shifting $L_2$ sunward brings the sailcraft closer to the planet: the planet's gravity grows steeply, the Sun's gravity grows slightly, and the centrifugal term weakens very subtly.
+The combined inward pull then exceeds the outward centrifugal force, requiring a net outward acceleration: the direction the sail can generate thrust.
+Since $\nabla U$ lies along the Sun-planet line, $\mathbf{\hat{n}}=[1,0,0]^{\top}$ and the sail faces the Sun.
 
-(75 words)
+(79 words)
 
 \begin{figure}[H]
   \centering
@@ -69,13 +69,13 @@ For an L2 shift towards the Sun, $\nabla U$ is parallel to the Sun-planet line, 
 \end{figure}
 
 \section{Task 2.2}
-The expressions for the required $\beta$ and sail orientation are analytically derived by \textcite[217]{mcinnes1999book}. 
-The validated numerical result for the lightness number is a little bit more complex, as most of the references do not tackle the exact same problem. 
-However, from the values in \cite[Table~1]{heiligers2014sunjammer}, the results for the shift in L1 match up to the significant figures provided for the mass parameter. 
-On a different level, since the normal vector is parallel to the gradient of the potential \parencite[eq. 5.120]{mcinnes1999book}, the required sail orientation is also verified by the fact of gradient orientation being collinear to the sun-planet line shown in \cite[Fig. 3]{mcinnes1994solar}. 
 
-(99 words)
+The lightness number is verified both analytically and against the literature.
+The closed-form on-axis equilibrium relation \parencite[217]{mcinnes1999book}, derived from the rotating-frame effective potential, when evaluated at each shifted coordinate, reproduces the solver's $\beta$ to nine significant figures for both Earth and Mars systems.
+\textcite{heiligers2014sunjammer} report $\beta = 0.0363$ for a Sun-Earth $L_1$ artificial equilibrium at $x = 0.983867$; re-running the solver with this same $\beta$ returns $x = 0.98385550$, agreeing to five significant figures (error: $1.15 \times 10^{-5}$).
+The orientation $\mathbf{\hat{n}}=[1,0,0]^{\top}$ follows from $\mathbf{\hat{n}}\parallel\nabla U$ \parencite[eq. 5.120]{mcinnes1999book}.
 
+(76 words)
 
 
 \section{Task 2.3}
@@ -96,8 +96,8 @@ On a different level, since the normal vector is parallel to the gradient of the
 
 \section{Task 2.4}
 
-In \autoref{fig:wp2_sensitivity}, $\beta$ is plotted as a function of the artificial $L_2$ $x$-coordinate. 
-The Mars case exhibits a steeper slope and higher required $\beta$ values compared to the Earth system.
+In \autoref{fig:wp2_sensitivity}, $\beta$ is plotted as a function of the artificial $L_2$ $x$-coordinate.
+The Mars case exhibits a steeper slope and higher required $\beta$ values compared to Earth.
 
 % Source - https://tex.stackexchange.com/a/119985
 % Posted by latex user, modified by community. See post 'Timeline' for change history
@@ -122,12 +122,11 @@ The Mars case exhibits a steeper slope and higher required $\beta$ values compar
     \label{fig:wp2_sensitivity}
 \end{figure}
 
-Increasing the shift toward the Sun requires a higher $\beta$ for equilibrium. 
-As shown in \autoref{tab:acceleration_3decimal}, moving to the artificial $L_2$ causes the planet's gravitational term for Mars to double, whereas Earth’s changes less. 
-This is because Mars's L2 is closer to the planet, so the gravitational pull is more sensitive to position changes.
-This trend is further validated by the first-order analytical approximation derived in \autoref{sec:beta-analytical}.
+Shifting the artificial $L_2$ toward the Sun increases planetary gravitational acceleration ($\propto 1/r_2^2$) while solar gravity rises slightly, requiring larger $\beta$ for equilibrium.
+The effect is stronger for Sun-Mars because its L2 sits much closer to the planet: a shift of $\delta = 0.001$ represents 21\% change in $r_2$ for Mars versus 10\% for Earth.
+\autoref{tab:acceleration_3decimal} confirms this: Mars's planetary term grows 2.03$\times$ (5.972 to 12.109) while Earth's grows 1.37$\times$ (5.940 to 8.123).
 
-(97 words)
+(99 words)
 
 \begin{table}[H]
   \centering
