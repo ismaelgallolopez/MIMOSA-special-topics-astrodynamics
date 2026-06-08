@@ -97,7 +97,7 @@ def hessianU(mu, x, y=0, beta=0):
            + 3 * mu * y**2 / r2**5)
 
     Uxy = (3 * (1 - mu) * (1- beta) * (x + mu) * y / r1**5
-           + 3 * mu * (1- beta) * (x - (1 - mu)) * y / r2**5)
+           + 3 * mu * (x - (1 - mu)) * y / r2**5)
 
     return Uxx, Uxy, Uyy
 
