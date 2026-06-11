@@ -33,20 +33,17 @@ This was a foreseeable result, since the demonstrations in the literature \paren
 
 \section{Task 3.2}
 
-Verification for the eigenvalues is performed by several different techniques. 
+Verification for the eigenvalues is performed by several different techniques.
 \begin{enumerate}
-  \item The classical \ac{cr3bp} is reduced to the trivial case of $\mu = 0$ (see \autoref{sec:trivial-cr3bp}), where the eigenvalues can be derived analytically and agree with the report's and \cite[Appendix I, table A]{szebehely1967theory}
-  % \footnote{Note that for the singularity produced by the $\mu = 0 $ case, the comparison shall be performed against the book's L3.}.
-  \item The eigenvalues at the equilibrium points for the same case can be found in \cite[Appendix I, table A]{szebehely1967theory}; the results agree
-  % \footnote{Note that the reference swaps the definition of L1 and L2 (see \cite[Fig 4.1]{szebehely1967theory}), so the L2 values presented in this report correspond to the book's L1, and vice versa. 
-  % Also, the results agree up to the 9th decimal place, leaving only some possible difference due to hypothetical rounding errors or the technique performed by the author, from which no details could be found.}.
-  \item The characteristic polinomial \parencite[sec 3.1.2]{mcinnes2000strategies} is used to compute the eigenvalues for the augmented \ac{cr3bp}, and the results also agree.
-  \item For the augmented \ac{cr3bp}, nonlinear \acs{eom} (\cite{mcinnes2000strategies}) are integrated and compared to the linearized system used for computing the eigenvalues (\autoref{fig:eigenvalue_verification}), showing good agreement \parencite[see][section 6.3]{strogatz2024nonlinear}.
+  \item For the classical \ac{cr3bp}, the eigenvalues at the equilibrium points are derived analytically in the trivial case $\mu = 0$ (see \autoref{sec:trivial-cr3bp}) and, for the assigned $\mu$, compared against the tabulated values of \cite[Appendix I, table A]{szebehely1967theory}; both agree.
+  % \footnote{The reference swaps the definitions of $L_1$ and $L_2$ (see \cite[Fig 4.1]{szebehely1967theory}), so the report's $L_2$ values correspond to the book's $L_1$, and vice versa. Results agree to the 9th decimal place.}
+  \item For the augmented \ac{cr3bp}, the in-plane eigenvalues at the displaced Sun-Earth $L_2$ reproduce the independently computed values of \cite[Table 2]{farres2019road} for $\beta = 0.03$.
+  \footnote{The mass ratio reported in \cite{farres2019road} ($\mu = 3.0034806\times10^{-6}$) reproduces neither their tabulated equilibrium position nor their eigenvalues; the implied value $\mu = 3.0404234\times10^{-6}$ recovers both ($x_{L_2} = 1.00762463476$, $\lambda = 3.72982$, $\omega_1 = 2.8482$) to all reported digits, and is adopted only for this comparison.}
+  \item The nonlinear \acs{eom} \parencite{mcinnes2000strategies} are integrated and reproduce the growth predicted by the eigenvalues, themselves derived from the potential Hessian (\autoref{fig:eigenvalue_verification}) \parencite[see][sec 6.3]{strogatz2024nonlinear}.
 \end{enumerate}
-
 Thus, the results are verified.
 
-(98 words)
+(90 words)
 
 \begin{figure}[H]
   \centering
