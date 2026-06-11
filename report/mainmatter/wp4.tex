@@ -29,20 +29,19 @@ For this reason, the only feasible transfer trajectory using the invariant manif
 
 \subsection{Task 4.2b}
 
-Since it is not specified in the problem statement, the insertion point of the transfer is selected to be the one that minimizes the $\Delta V$ required, and reported in \autoref{tab:delta_v_natural}. 
-For completion, also the $\Delta V$ corresponding to the first crossing is reported.
+% Since it is not specified in the problem statement, the insertion point of the transfer is selected to be the one that minimizes the $\Delta V$ required, and reported in \autoref{tab:delta_v_natural}. 
+% For completion, also the $\Delta V$ corresponding to the first crossing is reported.
 
 \begin{table}[H]
   \centering
   \caption{$\Delta V$s required to establish a natural transfer between Earth and Mars.}
   \label{tab:delta_v_natural}
-  \begin{tabular}{@{} c S[table-format=4.3] S[table-format=4.3] S[table-format=4.3] @{}}
+  \begin{tabular}{@{} S[table-format=4.3] S[table-format=4.3] S[table-format=4.3] @{}}
     \toprule
-    \textbf{Intersection} & \textbf{$\Delta V_E$ at Earth's} & \textbf{$\Delta V_M$ at Martian} & \textbf{$\Delta V_{TOT}$} \\
-     & \textbf{orbit [m/s]} & \textbf{parking orbit [m/s]} & \textbf{[m/s]} \\
+    \textbf{$\Delta V_E$ at Earth's} & \textbf{$\Delta V_M$ at Martian} & \textbf{$\Delta V_{TOT}$} \\
+    \textbf{orbit [m/s]} & \textbf{parking orbit [m/s]} & \textbf{[m/s]} \\
     \midrule
-    $\Delta V_{\text{min}}$ & N/A & 215.722 & 215.722 \\ 
-    1st crossing & N/A & 319.053 & 319.053 \\ 
+    N/A & 319.053 & 319.053 \\ 
     \bottomrule
   \end{tabular}
 \end{table}
@@ -56,26 +55,23 @@ For completion, also the $\Delta V$ corresponding to the first crossing is repor
 
 \section{Task 4.3}
 
-The equations are given in \autoref{chapter:derivations-wp4} and, considering the crossing with the minumum $\Delta V$ for each cone angle, yield the following results presented in \autoref{tab:solar_sail_transfer_details}.
+The equations are given in \autoref{chapter:derivations-wp4} and, considering the first crossing for each cone angle, yield the following results presented in \autoref{tab:solar_sail_transfer_details}.
 
 \begin{table}[H]
   \centering
   \caption{Details of the solar-sail Earth-Mars transfer with the smallest total $\Delta V$, $\Delta V_{TOT}$.}
   \label{tab:solar_sail_transfer_details}
-  \small
-  \begin{tabularx}{\textwidth}{@{} >{\centering\arraybackslash}m{1.4cm} >{\centering\arraybackslash}m{1.6cm} >{\centering\arraybackslash}m{1.6cm} >{\centering\arraybackslash}m{1.7cm} >{\centering\arraybackslash}m{1.7cm} >{\centering\arraybackslash}m{1.4cm} >{\centering\arraybackslash}m{1.9cm} >{\centering\arraybackslash}m{1.9cm} @{}}
+  \begin{tabularx}{\textwidth}{@{} >{\centering\arraybackslash}p{1.8cm} >{\centering\arraybackslash}p{1.8cm} >{\centering\arraybackslash}p{1.8cm} >{\centering\arraybackslash}p{1.8cm} >{\centering\arraybackslash}p{1.8cm} >{\centering\arraybackslash}p{1.8cm} >{\centering\arraybackslash}p{1.8cm} @{}}
     \toprule
-    \textbf{Intersection} &
-    \textbf{Leg 1 Optimal cone angle [deg]} &
-    \textbf{Leg 2 Optimal cone angle [deg]} &
-    \textbf{$\Delta V_E$ at Earth's orbit [m/s]} &
-    \textbf{$\Delta V_M$ at Martian parking orbit [m/s]} &
-    \textbf{$\Delta V_{TOT}$ [m/s]} &
-    \textbf{Transfer time along Earth-bound trajectory [Earth years]} &
+    \textbf{Leg 1 Optimal cone angle [deg]} & 
+    \textbf{Leg 2 Optimal cone angle [deg]} & 
+    \textbf{$\Delta V_E$ at Earth's orbit [m/s]} & 
+    \textbf{$\Delta V_M$ at Martian parking orbit [m/s]} & 
+    \textbf{$\Delta V_{TOT}$ [m/s]} & 
+    \textbf{Transfer time along Earth-bound trajectory [Earth years]} & 
     \textbf{Transfer time along Mars-bound trajectory [Earth years]} \\
     \midrule
-    $\Delta V_{\text{min}}$ & -52.5 & 75.0 & 488.424 & 100.709 & 589.133 & 4.51527 & 1.75713 \\ \addlinespace
-    1st crossing            & -52.5 & 67.5 & 488.424 & 238.813 & 726.977 & 4.51527 & 0.67463 \\
+    -52.5 & 67.5 & 488.424 & 238.813 & 726.977 & 4.51527 & 0.67463 \\
     \bottomrule
   \end{tabularx}
 \end{table}
@@ -139,31 +135,26 @@ Pablo's all-lower $\Delta V$'s reflect two independent effects: higher $\beta$ l
 The Lagrange point change also alters the manifold geometry, so $\beta$ cannot be credited alone. 
 Cone angles are not comparable: the trajectory shape depends on the target point's nonlinear \ac{eom}, which cannot be analyzed analytically.
 His transfer time for the Earth-bounded trajectory is shorter, consistent with the higher $\beta$ \parencite{vergaaij2018timeoptimal}.
-However, the transfer time for the Mars-bounded trajectory is longer, which can be explained because the insertion occurs at the lowest-$\Delta V$ crossing within the 5-year-window. 
-Thus, the transfer time is not only a consequence of sail performance, but also on the individual crossings' insertion $\Delta V$.
-For the Earth-bound case, since only one crossing exists for most angles, the transfer happens at the only possible crossing. 
+However, the transfer time for the Mars-bounded trajectory is slightly longer, which reflects differences in manifold geometry arising from the combined effect of the problem specification parameters rather than sail performance alone.
 Overall, the results are consistent with higher sail performance improving the transfer, but no dominant effect can be isolated from this comparison.
 
-(199 words)
+(165 words)
 
 \begin{table}[H]
   \centering
   \caption{Details of the solar-sail Earth-Mars transfer from fellow student Pablo García-Conde Ortiz.}
   \label{tab:solar_sail_transfer_details_pablo}
-  \small
-  \begin{tabularx}{\textwidth}{@{} >{\centering\arraybackslash}m{1.4cm} >{\centering\arraybackslash}m{1.6cm} >{\centering\arraybackslash}m{1.6cm} >{\centering\arraybackslash}m{1.7cm} >{\centering\arraybackslash}m{1.7cm} >{\centering\arraybackslash}m{1.4cm} >{\centering\arraybackslash}m{1.9cm} >{\centering\arraybackslash}m{1.9cm} @{}}
+  \begin{tabularx}{\textwidth}{@{} >{\centering\arraybackslash}p{1.8cm} >{\centering\arraybackslash}p{1.8cm} >{\centering\arraybackslash}p{1.8cm} >{\centering\arraybackslash}p{1.8cm} >{\centering\arraybackslash}p{1.8cm} >{\centering\arraybackslash}p{1.8cm} >{\centering\arraybackslash}p{1.8cm} @{}}
     \toprule
-    \textbf{Intersection} &
-    \textbf{Leg 1 Optimal cone angle [deg]} &
-    \textbf{Leg 2 Optimal cone angle [deg]} &
-    \textbf{$\Delta V_E$ at Earth's orbit [m/s]} &
-    \textbf{$\Delta V_M$ at Martian parking orbit [m/s]} &
-    \textbf{$\Delta V_{TOT}$ [m/s]} &
-    \textbf{Transfer time along Earth-bound trajectory [Earth years]} &
+    \textbf{Leg 1 Optimal cone angle [deg]} & 
+    \textbf{Leg 2 Optimal cone angle [deg]} & 
+    \textbf{$\Delta V_E$ at Earth's orbit [m/s]} & 
+    \textbf{$\Delta V_M$ at Martian parking orbit [m/s]} & 
+    \textbf{$\Delta V_{TOT}$ [m/s]} & 
+    \textbf{Transfer time along Earth-bound trajectory [Earth years]} & 
     \textbf{Transfer time along Mars-bound trajectory [Earth years]} \\
     \midrule
-    1st crossing            & 60.0 & 85.0 & 473.83 & 307.17 & 781.01 & 3.72 & 0.53 \\ \addlinespace
-    $\Delta V_{\text{min}}$ & 60.0 & 70.0 & 473.83 & 85.50  & 559.33 & 3.72 & 2.68 \\ 
+    60.0 & 85.0 & 473.83 & 307.17 & 781.01 & 3.72 & 0.53 \\ \addlinespace
     \bottomrule
   \end{tabularx}
 \end{table}
